@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "217901206253",
+    "firebase_url": "https://ogogwo-d5324.firebaseio.com",
+    "project_id": "ogogwo-d5324",
+    "storage_bucket": "ogogwo-d5324.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217901206253:android:bb141263487eba4d",
+        "android_client_info": {
+          "package_name": "nigeriandailies.com.ng.ogogwo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217901206253-glek09a33j5j2ehojlvbpv3otgkj3v4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nigeriandailies.com.ng.ogogwo",
+            "certificate_hash": "8ae905f7688e2dd695f59f6a8ca1b5fa39961a7e"
+          }
+        },
+        {
+          "client_id": "217901206253-ft353hlstraus7glnaain1utjlq91aif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxBiiQJstUD-RdRCxjNJPYIw0FO9Ds8r4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217901206253-ft353hlstraus7glnaain1utjlq91aif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF4081</color>
+    <color name="colorPrimaryDark">#e6004c</color>
+    <color name="colorAccent1">#b30000</color>
+    <color name="colorOguwgoOrderNumber">#303F9F</color>
+
+    itemDescriptionColor
+    <color name="verifyColor">#45519c</color>
+   <color name="colorPrimary1"> #3F51B5</color>
+    <color name="colorPrimaryDark1">#303F9F</color>
+
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorSignIn">#7e8de2</color>
+
+    <color name="empty_list">#9e9e9e</color>
+
+    <color name="buttonColor">#2196f3</color>
+
+    <color name="circleIconColor">#2196c3</color>
+
+    <color name="badge">#1d85d8</color>
+
+    <color name="transparentBadge">#cc145b93</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="statusBarGradient">#66000000</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="black">#000000</color>
+
+    <color name="darkText">#030507</color>
+
+    <color name="greyText">#464646</color>
+
+    <color name="selectedItem">#b9e0e0e0</color>
+
+    <color name="grey">#b4b4b4</color>
+
+    <color name="lightGrey">#e9e9e9</color>
+
+    <color name="darkGrey">#595959</color>
+
+    <color name="green">#00a017</color>
+
+    <color name="transparentGreen">#cc00a017</color>
+
+    <color name="red">#cfe11200</color>
+
+    <color name="light_red">#e23027</color>
+
+    <color name="actionBarColour">#cfe11200</color>
+
+    <color name="orange">#f96000</color>
+
+    <color name="brown">#D99138</color>
+
+    <color name="sea_green">#5f9ea0</color>
+
+    <color name="delivery_status">#099ca1</color>
+
+    <color name="print_button_color">#f47862</color>
+</resources>
