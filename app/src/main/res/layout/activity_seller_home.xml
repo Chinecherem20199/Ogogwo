@@ -6,8 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Sellers.SellerHomeActivity">
+    <RelativeLayout
+        android:id="@+id/relative_seller_home_re"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="My All Products"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
 
+    </RelativeLayout>
 
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/recycler_seller"
+    android:layout_width="match_parent"
+    android:layout_below="@+id/relative_seller_home_re"
+    android:layout_above="@+id/nav_view"
+    android:layout_height="match_parent">
+
+</android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav_view"
