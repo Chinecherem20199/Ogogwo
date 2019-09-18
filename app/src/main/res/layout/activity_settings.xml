@@ -7,7 +7,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    tools:context=".Buyer.SettingsActivity">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -87,6 +87,16 @@
         android:id="@+id/settings_adress"
         android:layout_below="@+id/settings_full_name"
         android:hint="@string/address"
+        android:padding="10dp"
+        android:layout_margin="15dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/security_questions_btn"
+        android:layout_below="@+id/settings_adress"
+        android:text="Set Security Questions"
+        android:background="@drawable/button"
+        android:textColor="@color/white"
         android:padding="10dp"
         android:layout_margin="15dp"/>
 

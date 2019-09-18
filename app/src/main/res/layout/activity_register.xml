@@ -10,7 +10,7 @@
     android:layout_height="wrap_content"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:background="@color/white"
-    tools:context=".RegisterActivity">
+    tools:context=".Buyer.RegisterActivity">
     <ImageView
         android:layout_width="100dp"
         android:layout_height="70dp"

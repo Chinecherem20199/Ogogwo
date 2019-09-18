@@ -1,4 +1,4 @@
-package nigeriandailies.com.ng.ogogwo;
+package nigeriandailies.com.ng.ogogwo.Buyer;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -25,6 +25,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 import model.Products;
+import nigeriandailies.com.ng.ogogwo.Prevalent;
+import nigeriandailies.com.ng.ogogwo.R;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 

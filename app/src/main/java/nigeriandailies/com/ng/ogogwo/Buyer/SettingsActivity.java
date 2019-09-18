@@ -1,4 +1,4 @@
-package nigeriandailies.com.ng.ogogwo;
+package nigeriandailies.com.ng.ogogwo.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,13 +31,15 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import model.Users;
+import nigeriandailies.com.ng.ogogwo.Prevalent;
+import nigeriandailies.com.ng.ogogwo.R;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity  {
 
    private CircleImageView profileImageView;
    private EditText userPhoneNumberEditext, fullNameEditext, addressEditext;
    private TextView profileChangeTextViewBtn, closeTextBtn, updateTextBtn;
+   private Button securityQuestionBtn;
 
    private Uri imageUri;
    private String myUrl = "";
@@ -57,15 +60,24 @@ public class SettingsActivity extends AppCompatActivity {
         addressEditext = findViewById(R.id.settings_adress);
         profileChangeTextViewBtn = findViewById(R.id.profile_image_change_btn);
         closeTextBtn = findViewById(R.id.close_settings_btn);
+        securityQuestionBtn =findViewById(R.id.security_questions_btn);
         updateTextBtn = findViewById(R.id.update_account_settings_btn);
         storageProfilePictureRef = FirebaseStorage.getInstance().getReference().child("Profile Pictures");
 
         userInfoDisplay(profileImageView, userPhoneNumberEditext, fullNameEditext, addressEditext);
 
-        closeTextBtn.setOnClickListener(new View.OnClickListener() {
+        closeTextBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        securityQuestionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check", "settings");
+                startActivity(intent);
             }
         });
 

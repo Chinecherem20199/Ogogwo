@@ -1,4 +1,4 @@
-package nigeriandailies.com.ng.ogogwo;
+package nigeriandailies.com.ng.ogogwo.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
+import nigeriandailies.com.ng.ogogwo.R;
+
 public class RegisterActivity extends AppCompatActivity {
     private EditText registerUserName;
 
@@ -28,6 +30,8 @@ public class RegisterActivity extends AppCompatActivity {
             registerPhonenumber, registerEmail,registerPassword;
     private Button createAccount;
     private ProgressDialog loadingBar;
+
+    private  static final String EMAIL_NAME ="@.com";
 
 
     @Override
@@ -42,6 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
         registerPassword = findViewById(R.id.register_password);
         createAccount = findViewById(R.id.create_account_btn);
         loadingBar = new ProgressDialog(this);
+
+
 
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override

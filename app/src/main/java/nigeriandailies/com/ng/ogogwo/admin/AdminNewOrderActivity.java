@@ -1,6 +1,9 @@
-package nigeriandailies.com.ng.ogogwo;
+package nigeriandailies.com.ng.ogogwo.admin;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -17,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import ViewHolder.AdminOrderViewHolder;
 import model.AdminOrders;
+import nigeriandailies.com.ng.ogogwo.R;
 
 public class AdminNewOrderActivity extends AppCompatActivity {
 
@@ -47,7 +50,7 @@ public class AdminNewOrderActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<AdminOrders,AdminOrderViewHolder>adapter =
                 new FirebaseRecyclerAdapter<AdminOrders, AdminOrderViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull AdminOrderViewHolder holder, int position, @NonNull AdminOrders model)
+                    protected void onBindViewHolder(@NonNull AdminOrderViewHolder holder, final int position, @NonNull final AdminOrders model)
                     {
 
                         holder.userName.setText("Name: " + model.getName());
@@ -56,9 +59,45 @@ public class AdminNewOrderActivity extends AppCompatActivity {
                         holder.userDateTime.setText("Order at: " + model.getDate() + " " + model.getTime());
                         holder.userShippingAdress.setText("Shipping Address: " + model.getAddress() + " " + model.getCity());
 
+                        holder.showAllOrdersBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
 
+                                String uID = getRef(position).getKey();
 
+                                Intent intent = new Intent(AdminNewOrderActivity.this, AdminUserProductsActivity.class);
+                                intent.putExtra("uid",uID);
+                                startActivity(intent);
+                            }
+                        });
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                CharSequence options [] = new CharSequence[]
+                                        {
+                                        "Yes",
+                                         "No"
+                                };
+                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrderActivity.this);
+                                builder.setTitle("Have you shipped this order products ?");
+                                builder.setItems(options, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        if (which == 0){
+                                            String uID = getRef(position).getKey();
+                                            
+                                            RemoveOrder(uID);
 
+                                        }else {
+                                            finish();
+
+                                        }
+
+                                    }
+                                });
+                                builder.show();
+                            }
+                        });
                     }
 
                     @NonNull
@@ -71,5 +110,9 @@ public class AdminNewOrderActivity extends AppCompatActivity {
                 };
         ordersList.setAdapter(adapter);
         adapter.startListening();
+    }
+
+    private void RemoveOrder(String uID) {
+        ordersRef.child(uID).removeValue();
     }
 }

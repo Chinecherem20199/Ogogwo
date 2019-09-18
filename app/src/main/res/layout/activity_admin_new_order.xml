@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminNewOrderActivity">
+    tools:context=".admin.AdminNewOrderActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="New Orders"
+            android:text="@string/new_orders_ne"
             android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="23sp"/>

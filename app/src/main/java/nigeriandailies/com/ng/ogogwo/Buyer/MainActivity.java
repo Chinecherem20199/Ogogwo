@@ -1,4 +1,4 @@
-package nigeriandailies.com.ng.ogogwo;
+package nigeriandailies.com.ng.ogogwo.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,10 +21,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 import model.Users;
+import nigeriandailies.com.ng.ogogwo.Prevalent;
+import nigeriandailies.com.ng.ogogwo.R;
+import nigeriandailies.com.ng.ogogwo.Sellers.SellerHomeActivity;
+import nigeriandailies.com.ng.ogogwo.Sellers.SellerRegistrationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button joinNowButton, loginbutton;
+    private TextView sellerBegin;
     private ProgressDialog loadingBar;
 
     @Override
@@ -32,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         joinNowButton = findViewById(R.id.main_join_now_btn);
         loginbutton = findViewById(R.id.main_login_btn);
+        sellerBegin = findViewById(R.id.seller_begin);
+
 
         loadingBar = new ProgressDialog(this);
 
@@ -52,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        sellerBegin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SellerRegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         String UserPhoneNumberKey = Paper.book().read(Prevalent.UserPhonenumberKey);
         String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
@@ -66,6 +83,22 @@ public class MainActivity extends AppCompatActivity {
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();
             }
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (firebaseUser !=null)
+        {
+            Intent intent = new Intent(MainActivity.this, SellerHomeActivity
+                    .class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 

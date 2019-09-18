@@ -1,4 +1,4 @@
-package nigeriandailies.com.ng.ogogwo;
+package nigeriandailies.com.ng.ogogwo.Buyer;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,6 +21,10 @@ import com.rey.material.widget.CheckBox;
 
 import io.paperdb.Paper;
 import model.Users;
+import nigeriandailies.com.ng.ogogwo.Prevalent;
+import nigeriandailies.com.ng.ogogwo.R;
+import nigeriandailies.com.ng.ogogwo.Sellers.SellerProductCategoryActivity;
+import nigeriandailies.com.ng.ogogwo.admin.AdminHomeActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText loginPhoneNumber, loginPassword;
@@ -29,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private ProgressDialog loadingBar;
     private String parentDbName = "Users";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 
         rememberCkb= findViewById(R.id.remember_me_ckb);
         Paper.init(this);
-
 
         forgetPasswordLink = findViewById(R.id.forget_password_link);
         adminPanelLink = findViewById(R.id.admin_panel_link);
@@ -70,6 +75,14 @@ public class LoginActivity extends AppCompatActivity {
                 nonAdminPanelLink.setVisibility(View.INVISIBLE);
                 adminPanelLink.setVisibility(View.VISIBLE);
                 parentDbName = "Users";
+            }
+        });
+        forgetPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check", "login");
+                startActivity(intent);
             }
         });
 
@@ -117,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Logged in successfully...", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                            startActivity(intent);
 
                             }else {
